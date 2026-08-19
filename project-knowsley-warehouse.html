@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warehouse mezzanine and rails — Prime Spray Solutions</title>
+<meta name="description" content="Case study: warehouse mezzanine and racking recoated across two weekend shutdowns in Knowsley, with zero lost production hours.">
+<link rel="canonical" href="https://prime-spray.co.uk/project-knowsley-warehouse.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#131519;
+  --graphite:#21252B;
+  --steel:#3B424B;
+  --mute:#6D7580;
+  --paper:#F2F3F1;
+  --card:#FFFFFF;
+  --line:#DDDFDA;
+  --brass:#B4822A;
+  --brass-deep:#8A6114;
+  --brass-tint:#F7F0DF;
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.narrow{max-width:820px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;font-stretch:112%;letter-spacing:-.015em;line-height:1.1;margin:0}
+h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;line-height:1.06}
+h2{font-size:clamp(24px,3.1vw,35px)}
+h3{font-size:19px;letter-spacing:-.005em}
+h4{font-size:16px}
+p{margin:0 0 1rem}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep);margin:0 0 14px}
+.eyebrow.light{color:#E4C87F}
+:focus-visible{outline:2.5px solid var(--brass);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* notes */
+.note{display:none;font-family:var(--mono);font-size:12.5px;line-height:1.6;background:#FFF8E4;border-left:3px solid var(--brass);color:#5C4310;padding:12px 16px;margin:0 0 24px}
+body.notes-on .note{display:block}
+.note b{font-weight:500;color:var(--brass-deep)}
+.notebar{position:fixed;right:20px;bottom:20px;z-index:120}
+.notebar button{font-family:var(--body);font-size:13.5px;font-weight:600;background:var(--ink);color:#fff;border:0;padding:12px 18px;border-radius:100px;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+.notebar button:hover{background:var(--steel)}
+
+/* util bar */
+.util{background:var(--ink);color:#B7BDC5;font-size:12.5px}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px;flex-wrap:wrap}
+.util .accs{font-family:var(--mono);letter-spacing:.04em}
+.util .accs b{color:#E4C87F;font-weight:400}
+.util a{color:#fff;text-decoration:none;font-weight:500}
+.util a:hover{color:#E4C87F}
+
+/* header */
+header{position:sticky;top:0;z-index:100;background:rgba(242,243,241,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px}
+.brand{text-decoration:none;display:block;flex-shrink:0}
+.brand .name{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:18px;letter-spacing:-.01em;line-height:1}
+.brand .sub{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--brass-deep);margin-top:5px}
+nav.main{display:flex;align-items:center;gap:24px}
+nav.main>a,.drop>button{font-family:var(--body);font-size:14.5px;font-weight:500;text-decoration:none;color:var(--steel);padding:6px 0;border:0;background:none;cursor:pointer;border-bottom:2px solid transparent}
+nav.main>a:hover,.drop>button:hover{color:var(--ink);border-bottom-color:var(--brass)}
+nav.main>a.active,.drop.active>button{color:var(--ink);border-bottom-color:var(--brass)}
+.drop{position:relative}
+.drop-menu{position:absolute;top:calc(100% + 14px);left:-16px;background:var(--card);border:1px solid var(--line);min-width:266px;padding:8px;box-shadow:0 14px 34px rgba(19,21,25,.13);display:none}
+.drop.open .drop-menu{display:block}
+.drop-menu a{display:flex;gap:11px;align-items:flex-start;text-decoration:none;padding:10px 12px;font-size:14.5px;color:var(--steel)}
+.drop-menu a:hover{background:var(--brass-tint);color:var(--ink)}
+.drop-menu .sq{width:11px;height:11px;margin-top:6px;flex-shrink:0}
+.btn{display:inline-block;font-family:var(--body);font-size:14.5px;font-weight:600;text-decoration:none;padding:12px 22px;border:0;cursor:pointer;transition:background .15s}
+.btn-primary{background:var(--brass);color:#fff}
+.btn-primary:hover{background:var(--brass-deep)}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--steel)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--brass);color:var(--brass-deep)}
+.hdr-cta{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.burger{display:none;background:none;border:1px solid var(--line);padding:9px 13px;font-size:13px;cursor:pointer;font-family:var(--body)}
+nav.mob{display:none;border-top:1px solid var(--line);background:var(--card);padding:10px 0}
+nav.mob.open{display:block}
+nav.mob a{display:block;padding:12px 28px;text-decoration:none;color:var(--steel);font-size:15px;border-bottom:1px solid var(--line)}
+
+/* hero */
+.hero{background:var(--graphite);color:#fff;padding:74px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1,.hero h2{color:#fff}
+.hero p.lede{font-size:18px;color:#C3C9D1;max-width:38ch;margin:20px 0 30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.page-hero{background:var(--graphite);color:#fff;padding:56px 0 60px}
+.page-hero h1{color:#fff;max-width:19ch}
+.page-hero p.lede{font-size:17.5px;color:#C3C9D1;max-width:56ch;margin:20px 0 28px}
+.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:#8B939D;margin-bottom:20px}
+.crumb a{color:#8B939D;text-decoration:none}
+.crumb a:hover{color:#E4C87F}
+
+/* photo placeholders */
+.shot{background:#E6E8E4;border:1px dashed #B6BAB4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;color:var(--mute)}
+.shot.dark{background:#2C3138;border-color:#5A626C;color:#8B939D}
+.shot .ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;margin-bottom:10px}
+.shot .desc{font-size:14px;line-height:1.55;max-width:30ch}
+.r43{aspect-ratio:4/3}.r54{aspect-ratio:5/4}.r169{aspect-ratio:16/9}.r11{aspect-ratio:1/1}
+
+/* swatch strip */
+.swatches{display:flex;margin-top:60px;border-top:1px solid rgba(255,255,255,.14)}
+.sw{flex:1;padding:16px 14px 18px;border-right:1px solid rgba(255,255,255,.14);transition:flex .3s}
+.sw:last-child{border-right:0}
+.sw:hover{flex:1.5}
+.sw .chip{height:34px;margin-bottom:12px}
+.sw .code{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#fff}
+.sw .nm{font-size:12px;color:#98A0AA;margin-top:3px;white-space:nowrap}
+
+/* trust */
+.trust{background:var(--card);border-bottom:1px solid var(--line);padding:20px 0}
+.trust .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.badge{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--steel);border:1px solid var(--line);padding:8px 14px;white-space:nowrap;text-decoration:none}
+.badge.star{border-color:var(--brass);color:var(--brass-deep);background:var(--brass-tint)}
+
+section{padding:76px 0}
+section.tight{padding:52px 0}
+.on-card{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dark{background:var(--graphite);color:#fff}
+.dark h2,.dark h3{color:#fff}
+.dark .sec-head p{color:#BCC3CB}
+.sec-head{max-width:64ch;margin-bottom:38px}
+.sec-head p{color:var(--steel);font-size:17px;margin-top:14px}
+.dark p{color:#C3C9D1}
+
+/* tabs */
+.tabs{display:flex;border:1px solid var(--line);background:var(--card);width:fit-content;margin-bottom:32px}
+.tab{font-family:var(--body);font-size:15px;font-weight:600;padding:14px 28px;background:none;border:0;cursor:pointer;color:var(--mute);border-bottom:3px solid transparent}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--brass);background:var(--brass-tint)}
+.panel[hidden]{display:none}
+
+/* two-col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.two.wide-left{grid-template-columns:1.15fr .85fr}
+.ticks{list-style:none;padding:0;margin:0 0 24px}
+.ticks li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;font-size:15.5px}
+.ticks li::before{content:"";position:absolute;left:0;top:19px;width:13px;height:13px;background:var(--brass)}
+.dark .ticks li{border-bottom-color:rgba(255,255,255,.14);color:#DDE1E6}
+
+/* service grid */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--card);padding:26px 24px 28px;text-decoration:none;color:inherit;display:block;transition:background .15s}
+.svc:hover{background:var(--brass-tint)}
+.svc .chip{height:8px;width:52px;margin-bottom:18px}
+.svc h3{margin-bottom:8px}
+.svc p{font-size:14.5px;color:var(--steel);margin:0 0 14px}
+.svc .price{font-family:var(--mono);font-size:12.5px;color:var(--brass-deep);letter-spacing:.05em}
+
+/* spec table */
+.spec-table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line)}
+.spec-table th,.spec-table td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.spec-table th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:400;width:34%}
+.spec-table tr:last-child th,.spec-table tr:last-child td{border-bottom:0}
+
+/* price panel */
+.price-panel{background:var(--brass-tint);border:1px solid #E8DCBE;padding:28px}
+.price-panel .big{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:38px;line-height:1;color:var(--brass-deep)}
+.price-panel .unit{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--brass-deep);margin-bottom:14px}
+.price-panel p{font-size:14.5px;color:#5C4310;margin:14px 0 18px}
+
+/* before after */
+.ba-wrap{background:var(--card);border:1px solid var(--line);padding:22px}
+.ba{position:relative;aspect-ratio:16/9;overflow:hidden;background:#E6E8E4;user-select:none;cursor:ew-resize}
+.ba .side{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--mute)}
+.ba .after{background:#D8DCD6}
+.ba .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;position:absolute;top:14px;padding:5px 10px;background:rgba(19,21,25,.82);color:#fff}
+.ba .before .tag{left:14px}
+.ba .after .tag{right:14px;background:var(--brass)}
+.ba .desc{font-size:14px;max-width:26ch;line-height:1.55}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--brass);transform:translateX(-1.5px);pointer-events:none}
+.ba-handle::after{content:"";position:absolute;top:50%;left:50%;width:38px;height:38px;margin:-19px 0 0 -19px;background:var(--brass);border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.85)}
+.ba-range{width:100%;margin:16px 0 0;accent-color:var(--brass)}
+.ba-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14.5px;color:var(--steel)}
+.ba-meta .spec{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.05em}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:28px}
+.step .n{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--brass-deep);padding-bottom:12px;border-bottom:2px solid var(--brass);display:block;margin-bottom:16px}
+.step p{font-size:15px;color:var(--steel);margin:8px 0 0}
+.dark .step .n{color:#E4C87F}
+.dark .step p{color:#C3C9D1}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:26px}
+.rev{border-top:2px solid var(--brass);padding-top:18px}
+.rev p{font-size:15.5px;line-height:1.7;margin-bottom:10px}
+.dark .rev p{color:#DDE1E6}
+.rev .who{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--mute)}
+.dark .rev .who{color:#969EA8}
+
+/* project cards */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.proj{background:var(--card);border:1px solid var(--line);text-decoration:none;color:inherit;display:block;transition:border-color .15s}
+.proj:hover{border-color:var(--brass)}
+.proj .body{padding:20px 22px 24px}
+.proj .kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--brass-deep);margin-bottom:9px}
+.proj h3{margin-bottom:8px;font-size:18px}
+.proj p{font-size:14.5px;color:var(--steel);margin:0}
+.proj .meta{font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.05em;margin-top:14px}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:19px 0;font-size:16.5px;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:20px;color:var(--brass);flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{font-size:15.5px;color:var(--steel);margin:0 0 20px;max-width:70ch}
+
+/* areas */
+.areas{display:flex;flex-wrap:wrap;gap:8px}
+.areas a{font-size:14px;text-decoration:none;background:var(--card);border:1px solid var(--line);padding:9px 15px;color:var(--steel)}
+.areas a:hover{border-color:var(--brass);color:var(--brass-deep)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--card);padding:24px}
+.stat .v{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:34px;line-height:1;color:var(--ink)}
+.stat .l{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mute);margin-top:10px;text-transform:uppercase}
+
+/* quote */
+.quote{background:var(--ink);color:#fff;padding:66px 0}
+.quote h2{color:#fff}
+.quote .inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.quote p{color:#B7BDC5;font-size:17px}
+.form{background:#1C1F24;border:1px solid #313740;padding:28px}
+.form label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#8B939D;margin:0 0 7px}
+.form input,.form select,.form textarea{width:100%;background:#282C33;border:1px solid #3A4049;color:#fff;font-family:var(--body);font-size:15px;padding:12px 13px;margin-bottom:18px}
+.form input::placeholder,.form textarea::placeholder{color:#6D7580}
+.form .err{color:#E39B8C;font-size:13px;margin:-12px 0 14px;display:none}
+.drop-zone{border:1px dashed #4A515B;padding:20px;text-align:center;color:#8B939D;font-size:14px;margin-bottom:20px}
+.form .btn{width:100%;text-align:center}
+.form-note{font-size:13px;color:#7C848E;margin:14px 0 0;text-align:center}
+
+/* footer */
+footer{background:#0E1013;color:#8B939D;padding:56px 0 30px;font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px;margin-bottom:40px}
+footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#fff;font-weight:400;margin:0 0 16px;font-stretch:100%}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:10px}
+footer a{color:#8B939D;text-decoration:none}
+footer a:hover{color:#E4C87F}
+.legal{border-top:1px solid #23272D;padding-top:22px;font-size:12.5px;color:#5F6771;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:980px){
+  .hero-grid,.two,.two.wide-left,.quote .inner{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .swatches{flex-wrap:wrap}
+  .sw{flex:1 1 33%;border-bottom:1px solid rgba(255,255,255,.14)}
+}
+@media(max-width:820px){
+  nav.main{display:none}
+  .burger{display:block}
+  .util .accs{display:none}
+  section{padding:52px 0}
+  .hero{padding-top:46px}
+  .page-hero{padding:40px 0 44px}
+}
+@media(max-width:520px){
+  .fgrid{grid-template-columns:1fr}
+  .tabs{width:100%}
+  .tab{flex:1;padding:13px 8px;font-size:14px}
+  .spec-table th{width:42%}
+}
+
+</style>
+</head>
+<body>
+
+<div class="notebar"><button id="noteBtn" type="button">Show design notes</button></div>
+
+<div class="util">
+  <div class="wrap">
+    <div class="accs">Constructionline <b>Gold</b> · CHAS Advanced · ISO 9001 / 14001 / 45001 · Achilles Silver</div>
+    <div><a href="tel:07801548063">07801 548063</a> &nbsp;·&nbsp; <a href="mailto:info@prime-spray.co.uk">info@prime-spray.co.uk</a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <div class="name">Prime Spray Solutions</div>
+      <div class="sub">SPECIALISTS IN PAINT FINISHING</div>
+    </a>
+    <nav class="main">
+        <a href="commercial.html">Commercial</a>
+        <a href="domestic.html">Domestic</a>
+        <div class="drop ">
+          <button type="button" aria-haspopup="true">What we spray ▾</button>
+          <div class="drop-menu">
+          <a href="service-kitchens.html"><span class="sq" style="background:#383E42"></span>Kitchen cabinet respraying</a>
+          <a href="service-upvc.html"><span class="sq" style="background:#F1F0EA;box-shadow:inset 0 0 0 1px var(--line)"></span>UPVC &amp; cladding spraying</a>
+          <a href="service-commercial-interiors.html"><span class="sq" style="background:#C5C7C4"></span>Commercial interiors</a>
+          <a href="service-industrial.html"><span class="sq" style="background:#14487A"></span>Industrial coatings</a>
+          <a href="service-roof-coatings.html"><span class="sq" style="background:#2F4538"></span>Specialist roof coatings</a>
+          <a href="service-decorating.html"><span class="sq" style="background:#B4822A"></span>Traditional decorating</a>
+          </div>
+        </div>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <button class="burger" id="burger" type="button">Menu</button>
+      <a class="btn btn-primary" href="contact.html">Get a quote</a>
+    </div>
+  </div>
+  <nav class="mob" id="mobnav">
+      <a href="index.html">Home</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="domestic.html">Domestic</a>
+      <a href="service-kitchens.html">Kitchen cabinet respraying</a>
+      <a href="service-upvc.html">UPVC &amp; cladding spraying</a>
+      <a href="service-commercial-interiors.html">Commercial interiors</a>
+      <a href="service-industrial.html">Industrial coatings</a>
+      <a href="service-roof-coatings.html">Specialist roof coatings</a>
+      <a href="service-decorating.html">Traditional decorating</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / Warehouse mezzanine and rails</div>
+    <p class="eyebrow light">INDUSTRIAL · STEELWORK</p>
+    <h1>Warehouse mezzanine and rails — Knowsley</h1>
+    <p class="lede">A live distribution facility that could not lose a single production hour. All works completed across two weekend shutdowns.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="ba-wrap">
+      <div class="ba">
+        <div class="side before"><span class="tag">BEFORE</span><div class="desc">Mezzanine steelwork as found — chipped, patched and mismatched.</div></div>
+        <div class="side after"><span class="tag">AFTER</span><div class="desc">Uniform RAL 7035 with safety yellow handrails.</div></div>
+        <div class="ba-handle"></div>
+      </div>
+      <label class="eyebrow" style="margin:16px 0 0;display:block">Drag to reveal</label>
+      <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal the after photo">
+      <div class="ba-meta"><div><strong>Mezzanine and racking recoated — Knowsley</strong></div><div class="spec">2 WEEKENDS · 1,400m² · 2K EPOXY</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-card">
+  <div class="wrap">
+    <div class="two wide-left">
+      <div>
+        <p class="eyebrow">The job</p>
+        <h2>What we did and why</h2>
+        <div style="margin-top:20px;font-size:16.5px;color:var(--steel)"><p>The client's constraint was simple and non-negotiable: the facility runs Monday to Friday and could not stop. Everything had to happen between Friday evening and Sunday night, twice.</p><p>We sequenced the work so the mezzanine and stairs were done on the first weekend and the racking on the second, which meant only one storage zone was ever out of use and stock could be shuffled rather than moved out.</p><p>Steelwork was degreased and mechanically abraded before coating, with dry film thickness readings taken as we went and logged for the client's records. Handrails were finished in safety yellow to the client's own signage standard.</p><p>Both weekends handed back on schedule on the Sunday evening, with a joint snag walk completed before we left site. No production hours were lost.</p></div>
+      </div>
+      <div>
+        <p class="eyebrow">Project detail</p>
+        <table class="spec-table" style="margin-top:20px"><tr><th>Location</th><td>Knowsley Industrial Park</td></tr><tr><th>Duration</th><td>2 weekend shutdowns</td></tr><tr><th>Area</th><td>Approximately 1,400m²</td></tr><tr><th>Scope</th><td>Mezzanine deck, handrails, stair stringers, racking uprights</td></tr><tr><th>System</th><td>2-pack epoxy, RAL 7035 with RAL 1023 safety yellow</td></tr><tr><th>Access</th><td>IPAF 3a scissor lift</td></tr><tr><th>Documentation</th><td>RAMS, COSHH, DFT records issued on completion</td></tr></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Gallery</p><h2>More from this project</h2></div>
+    <div class="proj-grid"><div class="shot r43 "><div class="ph">PHOTO SLOT</div><div class="desc">Detail shot — close on an edge or corner to show the finish quality.</div></div><div class="shot r43 "><div class="ph">PHOTO SLOT</div><div class="desc">Mid-job shot with containment in place. Proves the care taken.</div></div><div class="shot r43 "><div class="ph">PHOTO SLOT</div><div class="desc">Second finished angle, different part of the space.</div></div></div>
+    <p style="margin-top:30px"><a class="btn btn-line" href="projects.html">← Back to all projects</a></p>
+  </div>
+</section>
+
+<div class="quote" id="quote">
+  <div class="wrap">
+    <div class="inner">
+      <div>
+        <p class="eyebrow light">Get a price</p>
+        <h2>Got a similar project?</h2>
+        <p>Send us photos and we'll come back with a written price and a realistic timescale.</p>
+        <p style="margin-top:26px"><a class="btn btn-primary" href="tel:07801548063">Call 07801 548063</a> <a class="btn btn-ghost" href="https://wa.me/447801548063" target="_blank" rel="noopener" style="margin-left:8px">WhatsApp us</a></p>
+      </div>
+      <form class="form" id="quoteForm" novalidate>
+        <label for="fname">YOUR NAME</label>
+        <input id="fname" type="text" placeholder="Jonathan Reid">
+        <div class="err" id="fnameErr">Enter your name so we know who we're quoting.</div>
+        <label for="fphone">PHONE</label>
+        <input id="fphone" type="tel" placeholder="07700 900123">
+        <label for="fjob">WHAT'S THE JOB</label>
+        <select id="fjob">
+          <option>Kitchen cabinet respraying</option>
+          <option>UPVC windows or doors</option>
+          <option>Commercial interior</option>
+          <option>Industrial coating</option>
+          <option>Roof coating</option>
+          <option>Traditional decorating</option>
+        </select>
+        <div class="drop-zone">Drag photos here, or tap to add from your camera roll</div>
+        <button class="btn btn-primary" type="submit">Send and get a price</button>
+        <p class="form-note">Demonstration only — this form isn't connected.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:14px">
+          <div class="name" style="color:#fff">Prime Spray Solutions</div>
+          <div class="sub" style="color:#E4C87F">SPECIALISTS IN PAINT FINISHING</div>
+        </div>
+        <p style="max-width:34ch;margin:0">Specialist spray painting and decorating for commercial, industrial and domestic clients across Merseyside and the North West.</p>
+      </div>
+      <div>
+        <h4>WHAT WE SPRAY</h4>
+        <ul><li><a href="service-kitchens.html">Kitchen cabinet respraying</a></li>
+          <li><a href="service-upvc.html">UPVC &amp; cladding spraying</a></li>
+          <li><a href="service-commercial-interiors.html">Commercial interiors</a></li>
+          <li><a href="service-industrial.html">Industrial coatings</a></li>
+          <li><a href="service-roof-coatings.html">Specialist roof coatings</a></li>
+          <li><a href="service-decorating.html">Traditional decorating</a></li></ul>
+      </div>
+      <div>
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="commercial.html">For commercial clients</a></li>
+          <li><a href="domestic.html">For homeowners</a></li>
+          <li><a href="projects.html">Recent projects</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="areas.html">Areas covered</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="tel:07801548063">07801 548063</a></li>
+          <li><a href="mailto:info@prime-spray.co.uk">info@prime-spray.co.uk</a></li>
+          <li><a href="https://wa.me/447801548063" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.checkatrade.com/trades/primespraysolutions" target="_blank" rel="noopener">Checkatrade reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <div>Prime Spray Solutions Ltd · Company Reg 16145115 · VAT 461045126 · Demonstration site, not live</div>
+      <div><a href="https://prime-spray.co.uk/" target="_blank" rel="noopener">Compare with the current site →</a></div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var btn=document.getElementById('noteBtn');
+  if(btn){
+    if(sessionStorage.getItem('pssNotes')==='1'){
+      document.body.classList.add('notes-on');btn.textContent='Hide design notes';
+    }
+    btn.addEventListener('click',function(){
+      var on=document.body.classList.toggle('notes-on');
+      btn.textContent=on?'Hide design notes':'Show design notes';
+      sessionStorage.setItem('pssNotes',on?'1':'0');
+    });
+  }
+
+  var drop=document.querySelector('.drop');
+  if(drop){
+    var dbtn=drop.querySelector('button');
+    dbtn.addEventListener('click',function(e){e.stopPropagation();drop.classList.toggle('open');});
+    document.addEventListener('click',function(){drop.classList.remove('open');});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')drop.classList.remove('open');});
+  }
+
+  var burger=document.getElementById('burger'),mob=document.getElementById('mobnav');
+  if(burger&&mob){burger.addEventListener('click',function(){mob.classList.toggle('open');});}
+
+  var tabs=document.querySelectorAll('[role="tab"]');
+  if(tabs.length){
+    tabs.forEach(function(t){
+      t.addEventListener('click',function(){
+        tabs.forEach(function(x){
+          var sel=(x===t);
+          x.setAttribute('aria-selected',sel?'true':'false');
+          document.getElementById(x.getAttribute('aria-controls')).hidden=!sel;
+        });
+      });
+    });
+  }
+
+  document.querySelectorAll('.ba').forEach(function(ba){
+    var after=ba.querySelector('.after'),
+        handle=ba.querySelector('.ba-handle'),
+        range=ba.parentNode.querySelector('.ba-range');
+    function setPos(v){
+      v=Math.max(0,Math.min(100,v));
+      after.style.clipPath='inset(0 0 0 '+v+'%)';
+      handle.style.left=v+'%';
+    }
+    function fromEvent(e){
+      var r=ba.getBoundingClientRect();
+      var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+      var v=Math.round(x/r.width*100);
+      if(range)range.value=v;
+      setPos(v);
+    }
+    if(range)range.addEventListener('input',function(){setPos(parseFloat(range.value));});
+    var dragging=false;
+    ba.addEventListener('mousedown',function(e){dragging=true;fromEvent(e);e.preventDefault();});
+    window.addEventListener('mousemove',function(e){if(dragging)fromEvent(e);});
+    window.addEventListener('mouseup',function(){dragging=false;});
+    ba.addEventListener('touchstart',function(e){fromEvent(e);},{passive:true});
+    ba.addEventListener('touchmove',function(e){fromEvent(e);},{passive:true});
+    setPos(50);
+  });
+
+  var form=document.getElementById('quoteForm');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var n=form.querySelector('#fname'),err=form.querySelector('#fnameErr');
+      if(!n.value.trim()){
+        err.style.display='block';n.style.borderColor='#C86B5A';n.focus();return;
+      }
+      err.style.display='none';n.style.borderColor='#3A4049';
+      alert('Demonstration only \u2014 this form is not connected to anything yet.');
+    });
+    form.querySelector('#fname').addEventListener('input',function(){
+      form.querySelector('#fnameErr').style.display='none';
+      this.style.borderColor='#3A4049';
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
